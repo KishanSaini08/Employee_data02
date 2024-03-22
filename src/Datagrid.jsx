@@ -8,20 +8,23 @@ const Datagrid = ({ data }) => {
   const columns = useMemo(
     () => [
       { Header: 'ID', accessor: 'id' },
-      { Header: 'Customer', 
-        accessor: 'name', 
-        Cell: ({ row }) => (
-          <>
-            <img src={row.original.photo} alt="customer" style={{ width: 50 , height:50, borderRadius:50 }} />
-            {row.original.name}
-          </>
-        )
-      },
-      { Header: 'Order', accessor: 'order' },
-      { Header: 'Total Spent', accessor: 'totelspent' },
-      { Header: 'Last Seen', accessor: 'lastSeen' },
-    ],
-    []
+    { Header: 'Customer', 
+      accessor: 'name', 
+      Cell: ({ row }) => (
+        <>
+          <img src={row.original.photo} alt="customer" style={{ width: 50 , height:50, borderRadius:50 }} />
+          {row.original.name}
+        </>
+      )
+    },
+    { Header: 'Order', accessor: 'order' },
+    { Header: 'Total Spent', accessor: 'totelspent' },
+    { Header: 'Email', accessor: 'email' }, // Add Email column
+    { Header: 'Salary', accessor: 'salary' }, // Add Salary column
+    { Header: 'Last Seen', accessor: 'lastSeen' },
+    { Header: 'Last Purchase', accessor: 'lastPurchase' }, // Add Last Purchase column
+  ],
+  []
   );
   
   const { getTableProps,getTableBodyProps,headerGroups,rows, prepareRow,state,setGlobalFilter,} = useTable(
